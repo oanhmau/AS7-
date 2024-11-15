@@ -33,6 +33,34 @@ int main() {
   + Θ (Theta) - Độ phức tạp chính xác (Tight bound):  Ký hiệu Θ(f(n)) mô tả độ phức tạp chính xác của thuật toán, tức là nó cung cấp một giới hạn chặt chẽ cho độ phức tạp thời gian hoặc bộ nhớ của thuật toán. Điều này có nghĩa là thời gian thực thi của thuật toán sẽ tỷ lệ với f(n) trong cả trường hợp tốt nhất, trung bình và xấu nhất khi kích thước đầu vào 𝑛 đủ lớn.
   + Ω (Omega) - Độ phức tạp dưới cùng (Best-case complexity): Ký hiệu Ω(f(n)) mô tả độ phức tạp tối thiểu của thuật toán, tức là thời gian thực thi trong trường hợp tốt nhất. Nó chỉ ra rằng thời gian thực thi của thuật toán sẽ không ít hơn một giá trị nào đó theo hàm 𝑓(𝑛), trong trường hợp tốt nhất.
 # 3
+### **Chứng minh \( T(n) = n^3 + n^2 + 1 \) thuộc \( O(n^3) \), \( \Theta(n^3) \), \( \Omega(n^2) \)**
+
+1. **Chứng minh \( T(n) \in O(n^3) \):**  
+   \( T(n) = n^3 + n^2 + 1 \).  
+   Với \( n \) đủ lớn, \( n^3 \) là thành phần chiếm ưu thế, do đó:
+   \[
+   T(n) \leq C \cdot n^3 \quad \text{với} \quad C = 2 \quad \text{và} \quad n \geq 1
+   \]
+   Vậy \( T(n) \in O(n^3) \).
+
+2. **Chứng minh \( T(n) \in \Theta(n^3) \):**  
+   Từ \( T(n) = n^3 + n^2 + 1 \), ta có:
+   \[
+   n^3 \leq T(n) \leq 2n^3 \quad \text{với} \quad n \geq 1
+   \]
+   Vậy \( T(n) \in \Theta(n^3) \).
+
+3. **Chứng minh \( T(n) \in \Omega(n^2) \):**  
+   \( T(n) = n^3 + n^2 + 1 \), ta có:
+   \[
+   T(n) \geq n^2 \quad \text{với} \quad n \geq 1
+   \]
+   Vậy \( T(n) \in \Omega(n^2) \).
+
+### **Kết luận:**
+\[
+T(n) \in O(n^3), \, \Theta(n^3), \, \Omega(n^2)
+\]
 
 # 4
 ### **Chứng minh \( \Theta(f(n) + g(n)) = \max\{ \Theta(f(n)), \Theta(g(n)) \}**
@@ -63,34 +91,29 @@ f(n) + g(n) = \Theta(\max\{ f(n), g(n) \})
 \]
 
 # 5 
-### **Chứng minh \( T(n) = n^3 + n^2 + 1 \) thuộc \( O(n^3) \), \( \Theta(n^3) \), \( \Omega(n^2) \)**
+### **Chứng minh \( (n + a)^b = \Theta(n^b) \) với mọi \( a, b \) (với \( b > 0 \))**
 
-1. **Chứng minh \( T(n) \in O(n^3) \):**  
-   \( T(n) = n^3 + n^2 + 1 \).  
-   Với \( n \) đủ lớn, \( n^3 \) là thành phần chiếm ưu thế, do đó:
+Xét \( f(n) = (n + a)^b \), ta có:
+
+1. **Upper bound (chặn trên):**
    \[
-   T(n) \leq C \cdot n^3 \quad \text{với} \quad C = 2 \quad \text{và} \quad n \geq 1
+   (n + a)^b \leq (n + |a|)^b \leq 2^b \cdot n^b \quad \text{với} \quad n \geq |a|
    \]
-   Vậy \( T(n) \in O(n^3) \).
+   Vậy \( f(n) = O(n^b) \).
 
-2. **Chứng minh \( T(n) \in \Theta(n^3) \):**  
-   Từ \( T(n) = n^3 + n^2 + 1 \), ta có:
+2. **Lower bound (chặn dưới):**
    \[
-   n^3 \leq T(n) \leq 2n^3 \quad \text{với} \quad n \geq 1
+   (n + a)^b \geq n^b \quad \text{với} \quad n \geq |a|
    \]
-   Vậy \( T(n) \in \Theta(n^3) \).
+   Vậy \( f(n) = \Omega(n^b) \).
 
-3. **Chứng minh \( T(n) \in \Omega(n^2) \):**  
-   \( T(n) = n^3 + n^2 + 1 \), ta có:
+3. **Kết luận:**
+   Vì \( f(n) = O(n^b) \) và \( f(n) = \Omega(n^b) \), ta có:
    \[
-   T(n) \geq n^2 \quad \text{với} \quad n \geq 1
+   (n + a)^b = \Theta(n^b)
    \]
-   Vậy \( T(n) \in \Omega(n^2) \).
 
-### **Kết luận:**
-\[
-T(n) \in O(n^3), \, \Theta(n^3), \, \Omega(n^2)
-\]
+
 
 
 
