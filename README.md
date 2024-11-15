@@ -112,3 +112,86 @@ Xét \( f(n) = (n + a)^b \), ta có:
    \[
    (n + a)^b = \Theta(n^b)
    \]
+
+
+
+
+
+
+
+
+### **Bài 1: Chứng minh \( T(n) = n^3 + n^2 + 1 \) thuộc \( O(n^3) \), \( \Theta(n^3) \), \( \Omega(n^2) \)**
+
+1. **Chứng minh \( T(n) \in O(n^3) \):**  
+   \( T(n) = n^3 + n^2 + 1 \).  
+   Với \( n \) đủ lớn, \( n^3 \) là thành phần chiếm ưu thế, do đó:
+   \[
+   T(n) \leq C \cdot n^3 \quad \text{với} \quad C = 2 \quad \text{và} \quad n \geq 1
+   \]
+   Vậy \( T(n) \in O(n^3) \).
+
+2. **Chứng minh \( T(n) \in \Theta(n^3) \):**  
+   Từ \( T(n) = n^3 + n^2 + 1 \), ta có:
+   \[
+   n^3 \leq T(n) \leq 2n^3 \quad \text{với} \quad n \geq 1
+   \]
+   Vậy \( T(n) \in \Theta(n^3) \).
+
+3. **Chứng minh \( T(n) \in \Omega(n^2) \):**  
+   \( T(n) = n^3 + n^2 + 1 \), ta có:
+   \[
+   T(n) \geq n^2 \quad \text{với} \quad n \geq 1
+   \]
+   Vậy \( T(n) \in \Omega(n^2) \).
+
+### **Kết luận:**
+\[
+T(n) \in O(n^3), \, \Theta(n^3), \, \Omega(n^2)
+\]
+
+
+### **Bài 2: Chứng minh \( (n + a)^b = \Theta(n^b) \) với mọi \( a, b \) (với \( b > 0 \))**
+
+Xét \( f(n) = (n + a)^b \), ta có:
+
+1. **Upper bound (chặn trên):**
+   \[
+   (n + a)^b \leq (n + |a|)^b \leq 2^b \cdot n^b \quad \text{với} \quad n \geq |a|
+   \]
+   Vậy \( f(n) = O(n^b) \).
+
+2. **Lower bound (chặn dưới):**
+   \[
+   (n + a)^b \geq n^b \quad \text{với} \quad n \geq |a|
+   \]
+   Vậy \( f(n) = \Omega(n^b) \).
+
+3. **Kết luận:**
+   Vì \( f(n) = O(n^b) \) và \( f(n) = \Omega(n^b) \), ta có:
+   \[
+   (n + a)^b = \Theta(n^b)
+   \]
+
+
+### **Bài 3: Chứng minh \( \Theta(f(n) + g(n)) = \max\{ \Theta(f(n)), \Theta(g(n)) \} \)**
+
+Để chứng minh \( \Theta(f(n) + g(n)) = \max\{ \Theta(f(n)), \Theta(g(n)) \} \), ta thực hiện các bước sau:
+
+1. **Chứng minh \( \Theta(f(n) + g(n)) \subseteq \max\{\Theta(f(n)), \Theta(g(n))\}:**
+   - Khi \( n \) đủ lớn, giữa \( f(n) \) và \( g(n) \), hàm nào có tốc độ tăng trưởng nhanh hơn sẽ chiếm ưu thế.
+   - Do đó:
+     \[
+     f(n) + g(n) = O(\max(f(n), g(n)))
+     \]
+   - Vậy \( f(n) + g(n) \in \max\{\Theta(f(n)), \Theta(g(n))\} \).
+
+2. **Chứng minh \( \max\{\Theta(f(n)), \Theta(g(n))\} \subseteq \Theta(f(n) + g(n)) \):**
+   - Nếu \( f(n) \in \Theta(f(n)) \), ta có \( f(n) + g(n) \in \Theta(f(n)) \).
+   - Tương tự, nếu \( g(n) \in \Theta(g(n)) \), ta có \( f(n) + g(n) \in \Theta(g(n)) \).
+   - Do đó, \( f(n) + g(n) \in \Theta(\max\{f(n), g(n)\}) \).
+
+### **Kết luận:**
+\[
+\Theta(f(n) + g(n)) = \max\{\Theta(f(n)), \Theta(g(n))\}
+\]
+
